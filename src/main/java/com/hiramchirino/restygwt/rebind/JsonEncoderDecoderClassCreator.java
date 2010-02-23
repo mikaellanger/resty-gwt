@@ -25,11 +25,14 @@ import com.google.gwt.core.ext.typeinfo.JClassType;
 import com.google.gwt.core.ext.typeinfo.JField;
 import com.google.gwt.core.ext.typeinfo.JPrimitiveType;
 import com.google.gwt.core.ext.typeinfo.JType;
+import com.google.gwt.json.client.JSONNull;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.rebind.ClassSourceFileComposerFactory;
 import com.hiramchirino.restygwt.client.Json;
 import com.hiramchirino.restygwt.client.Json.Style;
+import com.hiramchirino.restygwt.client.ExcludeNull;
+
 
 /**
  * 
@@ -112,7 +115,8 @@ public class JsonEncoderDecoderClassCreator extends BaseSourceCreator {
                                 p(JSON_VALUE_CLASS + " v=" + expression + ";");
                                 p("if( v!=null ) {").i(1);
                                 {
-                                    p("rc.put(" + wrap(name) + ", v);");
+				     if (field.isAnnotationPresent(ExcludeNull.class)) p("if (v != " + JSONNull.class.getCanonicalName() + ".getInstance())");
+				     p("rc.put(" + wrap(name) + ", v);");
                                 }
                                 i(-1).p("}");
                             }
