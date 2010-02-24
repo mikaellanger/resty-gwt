@@ -43,26 +43,21 @@
   </developers>
   
   <scm>
-    <connection>scm:git:git://github.com/chirino/resty-gwt.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:chirino/resty-gwt.git</developerConnection>
+    <connection>scm:git:git://github.com/mikaellanger/resty-gwt.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:mikaellanger/resty-gwt.git</developerConnection>
     <url>http://github.com/chirino/resty-gwt</url>
   </scm>
 
   <distributionManagement>
     <repository>
-      <id>sonatype-nexus-staging</id>
-      <name>Nexus Release Repository</name>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <uniqueVersion>false</uniqueVersion>
+      <id>git</id>
+      <url>file:../mikaellanger.github.com/maven2</url>
     </repository>
-    <snapshotRepository>
-      <id>sonatype-nexus-snapshots</id>
-      <name>Sonatype Nexus Snapshots</name>
-      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>  
+  </distributionManagement>
   
   <properties>
-    <gwt-version>2.0.0</gwt-version>
+    <gwt-version>2.0.1</gwt-version>
   </properties>
 
   <dependencies>
